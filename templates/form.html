@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="POST" action="/form_submit" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control") }}
+        <br>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock %}
