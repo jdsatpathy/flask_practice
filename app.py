@@ -5,9 +5,13 @@ from wtforms import DecimalField, RadioField, SelectField, TextAreaField, FileFi
 from wtforms.validators import InputRequired
 from werkzeug.security import generate_password_hash
 import traceback
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secretkey'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 
 class MyForm(FlaskForm):
@@ -37,7 +41,7 @@ def on_form_submit():
 
 @app.route('/link1')
 def link1():
-    return {"a": "apple", "b": "ball"}
+    return {"a": "apple", "b": "ball", "c": "cat"}
 
 
 if __name__ == '__main__':
